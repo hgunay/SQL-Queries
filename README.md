@@ -1,0 +1,2 @@
+# SQL-Queries
+SQL notlarım
