@@ -1,13 +1,14 @@
 ```sql
 WITH CTE AS (
     SELECT 
-        [COLUMN_NAME]
-        ROW_NUMBER() OVER (
+         [COLUMN_NAME]
+        ,ROW_NUMBER() 
+	 OVER (
             PARTITION BY 
                 [COLUMN_NAME]
             ORDER BY 
                 [COLUMN_NAME]
-        ) ROW_NUM
+         ) ROW_NUM
      FROM 
         [TABLE_NAME]
 )
@@ -20,16 +21,16 @@ SELECT * FROM CTE WHERE ROW_NUM > 1
 WITH CTE AS (
     SELECT 
          Name
-		    ,Description
+	,Description
         ,ROW_NUMBER() 
-		    OVER (
+	 OVER (
             PARTITION BY
                Name
               ,Description
             ORDER BY
                Name
               ,Description
-        ) ROW_NUM
+         ) ROW_NUM
      FROM  [Project]
 )
 SELECT * FROM CTE WHERE ROW_NUM > 1
@@ -45,9 +46,9 @@ Silme İşlemi;
 WITH CTE AS (
     SELECT 
          Name
-		    ,Description
+	,Description
         ,ROW_NUMBER() 
-		    OVER (
+	 OVER (
             PARTITION BY
                Name
               ,Description
